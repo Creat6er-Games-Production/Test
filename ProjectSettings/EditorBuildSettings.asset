@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/1.unity
+    guid: c4e0b7db2f83917438fec35173dd91be
+  - enabled: 1
+    path: Assets/Scenes/Splafer/S-1.unity
+    guid: 9b79d326ae3bf1f4ea6b391eb2afb7e0
   m_configObjects: {}
