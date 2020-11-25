@@ -18,7 +18,23 @@ public class PlayerHp : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (!PlayerPrefs.HasKey("Eat"))
+        {
+            PlayerPrefs.SetFloat("Eat", 0.7f);
+        }
+        else
+        {
+            Eat = PlayerPrefs.GetFloat("Eat");
+        }
 
+        if (!PlayerPrefs.HasKey("Hp"))
+        {
+            PlayerPrefs.SetFloat("Hp", 1);
+        }
+        else
+        {
+            Hp = PlayerPrefs.GetFloat("Hp");
+        }
     }
 
     // Update is called once per frame
@@ -53,18 +69,23 @@ public class PlayerHp : MonoBehaviour
 
         ObjHp.GetComponent<Slider>().value = Hp;
         ObjEat.GetComponent<Slider>().value = Eat;
+        
 
         if (Eat > 0)
         {
             Eat -= 0.005f * Time.deltaTime;
+            PlayerPrefs.SetFloat("Eat", Eat);
         }
         else
         {
             Hp -= 0.01f * Time.deltaTime;
+            PlayerPrefs.SetFloat("Hp", Hp);
         }
 
         if(Hp <= 0)
         {
+            Eat += 0.50f;
+            Hp += 0.50f;
             SceneManager.LoadScene(scene);
         }
 
